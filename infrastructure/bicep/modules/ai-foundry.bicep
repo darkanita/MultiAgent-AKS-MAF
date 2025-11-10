@@ -8,7 +8,8 @@ param tags object
 
 var aiHubName = '${projectName}-${environment}-aihub'
 var aiProjectName = '${projectName}-${environment}-aiproject'
-var storageAccountName = '${projectName}${environment}aistorage'
+// Storage account names: 3-24 chars, lowercase, numbers only, no hyphens
+var storageAccountName = 'st${replace(projectName, '-', '')}${environment}ai'
 // Force East US for Azure OpenAI model availability
 var aiLocation = 'eastus'
 
