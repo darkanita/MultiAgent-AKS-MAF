@@ -27,7 +27,7 @@ on:
 env:
   AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   LOCATION: centralus
-  PROJECT_NAME: multiagent
+  PROJECT_NAME: multiagent-test
   RESOURCE_GROUP: multiagent-github-test-rg
 
 permissions:
