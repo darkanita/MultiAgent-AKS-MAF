@@ -28,7 +28,7 @@ env:
   AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
   LOCATION: centralus
   PROJECT_NAME: multiagent
-  RESOURCE_GROUP: multiagent-dev-rg
+  RESOURCE_GROUP: multiagent-github-test-rg
 
 permissions:
   id-token: write
@@ -46,6 +46,13 @@ jobs:
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Create Resource Group for Validation
+        run: |
+          az group create \
+            --name ${{ env.RESOURCE_GROUP }} \
+            --location ${{ env.LOCATION }} \
+            --tags Environment=dev Project=MultiAgent-AKS-MAF ManagedBy=GitHubActions
 
       - name: Validate Bicep files
         run: |
