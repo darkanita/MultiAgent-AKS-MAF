@@ -72,8 +72,11 @@ build/
 # Secrets and credentials
 *secret*
 *credentials*
-*key*
+*_key
+*-key
+*.key
 !*_key.example
+!key-vault.bicep
 
 # Temporary files
 *.tmp
